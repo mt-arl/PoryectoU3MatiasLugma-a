@@ -463,7 +463,7 @@ El Pedido Service está diseñado para integrarse con:
 
 ## 📄 Licencia
 
-Este proyecto es parte del sistema LogiFlow - EntregaExpress P2.
+Este proyecto es parte del sistema LogiFlow
 
 ## 👥 Contacto
 
