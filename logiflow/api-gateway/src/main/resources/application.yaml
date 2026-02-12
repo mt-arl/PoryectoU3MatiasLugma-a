@@ -1,0 +1,71 @@
+server:
+  port: 8000
+
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    gateway:
+      routes:
+        # Auth Service - directamente sin modificar path
+        - id: auth-service
+          uri: ${SPRING_CLOUD_GATEWAY_ROUTES_0_URI:http://localhost:8081}
+          predicates:
+            - Path=/api/auth/**
+
+        # Billing Service - rutear a /api/**
+        - id: billing-service
+          uri: ${SPRING_CLOUD_GATEWAY_ROUTES_1_URI:http://localhost:8082}
+          predicates:
+            - Path=/billing/**
+          filters:
+            - RewritePath=/billing/(?<path>.*), /api/$\{path}
+
+        # Fleet Service - tiene context-path /api, rutear correctamente
+        - id: fleet-service
+          uri: ${SPRING_CLOUD_GATEWAY_ROUTES_2_URI:http://localhost:8083}
+          predicates:
+            - Path=/fleet/**
+          filters:
+            - RewritePath=/fleet/(?<path>.*), /api/$\{path}
+
+        # Pedido Service - rutear a /api/**
+        # Pedido Service - codigo de prtureba
+
+
+        - id: pedido-service
+          uri: ${SPRING_CLOUD_GATEWAY_ROUTES_3_URI:http://localhost:8084}
+          predicates:
+            - Path=/pedido/**
+          filters:
+            - RewritePath=/pedido/(?<path>.*), /api/$\{path}
+
+        # Tracking Service - rutear a /api/**
+        - id: tracking-service
+          uri: ${SPRING_CLOUD_GATEWAY_ROUTES_4_URI:http://localhost:8090}
+          predicates:
+            - Path=/tracking/**
+          filters:
+            - RewritePath=/tracking/(?<path>.*), /api/$\{path}
+
+        # Notifications Service - rutear a /api/**
+        - id: notifications-service
+          uri: ${SPRING_CLOUD_GATEWAY_ROUTES_5_URI:http://localhost:8085}
+          predicates:
+            - Path=/notifications/**
+          filters:
+            - RewritePath=/notifications/(?<path>.*), /api/$\{path}
+
+        # GraphQL Service - delivery-graphql-service
+        - id: graphql-service
+          uri: ${SPRING_CLOUD_GATEWAY_ROUTES_6_URI:http://localhost:4000}
+          predicates:
+            - Path=/graphql/**
+          filters:
+            - RewritePath=/graphql/(?<path>.*), /$\{path}
+
+jwt:
+  secret: ${JWT_SECRET:MiSuperClaveSecretaMuyLarga123456789}
+  issuer: ${JWT_ISSUER:auth-service}
+
+

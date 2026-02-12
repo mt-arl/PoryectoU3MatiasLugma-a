@@ -1,0 +1,1719 @@
+{
+    "info": {
+        "_postman_id": "logiflow-collection-v4-graphql",
+        "name": "LogiFlow Microservices API + GraphQL",
+        "description": "Colección completa para el sistema LogiFlow V2, incluyendo REST API y GraphQL Service (Puerto 8000).",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Auth Service",
+            "item": [
+                {
+                    "name": "Register",
+                    "request": {
+                        "method": "POST",
+                        "header": [],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"username\": \"testuser\",\n    \"email\": \"test@example.com\",\n    \"password\": \"password123\",\n    \"roles\": [\"ROLE_USER\"]\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{BASE_URL_GATEWAY}}/api/auth/register",
+                            "host": [
+                                "{{BASE_URL_GATEWAY}}"
+                            ],
+                            "path": [
+                                "api",
+                                "auth",
+                                "register"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Login",
+                    "request": {
+                        "method": "POST",
+                        "header": [],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"username\": \"testuser\",\n    \"password\": \"password123\"\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{BASE_URL_GATEWAY}}/api/auth/login",
+                            "host": [
+                                "{{BASE_URL_GATEWAY}}"
+                            ],
+                            "path": [
+                                "api",
+                                "auth",
+                                "login"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Refresh Token",
+                    "request": {
+                        "method": "POST",
+                        "header": [],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "YOUR_REFRESH_TOKEN_STRING",
+                            "options": {
+                                "raw": {
+                                    "language": "text"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{BASE_URL_GATEWAY}}/api/auth/token/refresh",
+                            "host": [
+                                "{{BASE_URL_GATEWAY}}"
+                            ],
+                            "path": [
+                                "api",
+                                "auth",
+                                "token",
+                                "refresh"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Revoke Token",
+                    "request": {
+                        "method": "POST",
+                        "header": [],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "YOUR_REFRESH_TOKEN_STRING",
+                            "options": {
+                                "raw": {
+                                    "language": "text"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{BASE_URL_GATEWAY}}/api/auth/token/revoke",
+                            "host": [
+                                "{{BASE_URL_GATEWAY}}"
+                            ],
+                            "path": [
+                                "api",
+                                "auth",
+                                "token",
+                                "revoke"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Get All Users",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{ACCESS_TOKEN}}",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{BASE_URL_GATEWAY}}/api/auth/users",
+                            "host": [
+                                "{{BASE_URL_GATEWAY}}"
+                            ],
+                            "path": [
+                                "api",
+                                "auth",
+                                "users"
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Billing Service",
+            "item": [
+                {
+                    "name": "Crear Factura",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{ACCESS_TOKEN}}",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"pedidoId\": \"PEDIDO-UUID-123\",\n    \"tipoEntrega\": \"EXPRESS\",\n    \"distanciaKm\": 15.5,\n    \"peso\": 5.0\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{BASE_URL_GATEWAY}}/billing/facturas",
+                            "host": [
+                                "{{BASE_URL_GATEWAY}}"
+                            ],
+                            "path": [
+                                "billing",
+                                "facturas"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Obtener Todas las Facturas",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{ACCESS_TOKEN}}",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{BASE_URL_GATEWAY}}/billing/facturas",
+                            "host": [
+                                "{{BASE_URL_GATEWAY}}"
+                            ],
+                            "path": [
+                                "billing",
+                                "facturas"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Obtener Estadísticas",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{ACCESS_TOKEN}}",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{BASE_URL_GATEWAY}}/billing/facturas/estadisticas",
+                            "host": [
+                                "{{BASE_URL_GATEWAY}}"
+                            ],
+                            "path": [
+                                "billing",
+                                "facturas",
+                                "estadisticas"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Obtener Factura por ID",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{ACCESS_TOKEN}}",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{BASE_URL_GATEWAY}}/billing/facturas/:id",
+                            "host": [
+                                "{{BASE_URL_GATEWAY}}"
+                            ],
+                            "path": [
+                                "billing",
+                                "facturas",
+                                ":id"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "id",
+                                    "value": "UUID_FACTURA"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Obtener Factura por ID Pedido",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{ACCESS_TOKEN}}",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{BASE_URL_GATEWAY}}/billing/facturas/pedido/:pedidoId",
+                            "host": [
+                                "{{BASE_URL_GATEWAY}}"
+                            ],
+                            "path": [
+                                "billing",
+                                "facturas",
+                                "pedido",
+                                ":pedidoId"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "pedidoId",
+                                    "value": "UUID_PEDIDO"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Actualizar Estado Factura",
+                    "request": {
+                        "method": "PATCH",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{ACCESS_TOKEN}}",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{BASE_URL_GATEWAY}}/billing/facturas/:id/estado?estado=PAGADA",
+                            "host": [
+                                "{{BASE_URL_GATEWAY}}"
+                            ],
+                            "path": [
+                                "billing",
+                                "facturas",
+                                ":id",
+                                "estado"
+                            ],
+                            "query": [
+                                {
+                                    "key": "estado",
+                                    "value": "PAGADA"
+                                }
+                            ],
+                            "variable": [
+                                {
+                                    "key": "id",
+                                    "value": "UUID_FACTURA"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Crear Tarifa Base",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{ACCESS_TOKEN}}",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"tipoEntrega\": \"URBANA_RAPIDA\",\n    \"tarifaBase\": 5.00\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{BASE_URL_GATEWAY}}/billing/tarifas",
+                            "host": [
+                                "{{BASE_URL_GATEWAY}}"
+                            ],
+                            "path": [
+                                "billing",
+                                "tarifas"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Obtener Todas las Tarifas",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{ACCESS_TOKEN}}",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{BASE_URL_GATEWAY}}/billing/tarifas/all",
+                            "host": [
+                                "{{BASE_URL_GATEWAY}}"
+                            ],
+                            "path": [
+                                "billing",
+                                "tarifas",
+                                "all"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Obtener Tarifa por Tipo",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{ACCESS_TOKEN}}",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{BASE_URL_GATEWAY}}/billing/tarifas/:tipoEntrega",
+                            "host": [
+                                "{{BASE_URL_GATEWAY}}"
+                            ],
+                            "path": [
+                                "billing",
+                                "tarifas",
+                                ":tipoEntrega"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "tipoEntrega",
+                                    "value": "URBANA_RAPIDA"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Actualizar Tarifa",
+                    "request": {
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{ACCESS_TOKEN}}",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"tipoEntrega\": \"URBANA_RAPIDA\",\n    \"tarifaBase\": 6.50\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{BASE_URL_GATEWAY}}/billing/tarifas/:tipoEntrega",
+                            "host": [
+                                "{{BASE_URL_GATEWAY}}"
+                            ],
+                            "path": [
+                                "billing",
+                                "tarifas",
+                                ":tipoEntrega"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "tipoEntrega",
+                                    "value": "URBANA_RAPIDA"
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Fleet Service",
+            "item": [
+                {
+                    "name": "Vehículos",
+                    "item": [
+                        {
+                            "name": "Crear Vehículo",
+                            "request": {
+                                "method": "POST",
+                                "header": [
+                                    {
+                                        "key": "Authorization",
+                                        "value": "Bearer {{ACCESS_TOKEN}}",
+                                        "type": "text"
+                                    }
+                                ],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\n    \"tipo\": \"MOTORIZADO\",\n    \"placa\": \"ABC-123\",\n    \"marca\": \"Honda\",\n    \"modelo\": \"CGL 125\",\n    \"anio\": 2024,\n    \"capacidadCarga\": 25.0,\n    \"cilindraje\": 125,\n    \"tieneCajones\": true\n}",
+                                    "options": {
+                                        "raw": {
+                                            "language": "json"
+                                        }
+                                    }
+                                },
+                                "url": {
+                                    "raw": "{{BASE_URL_GATEWAY}}/fleet/vehiculos",
+                                    "host": [
+                                        "{{BASE_URL_GATEWAY}}"
+                                    ],
+                                    "path": [
+                                        "fleet",
+                                        "vehiculos"
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "name": "Listar Vehículos",
+                            "request": {
+                                "method": "GET",
+                                "header": [
+                                    {
+                                        "key": "Authorization",
+                                        "value": "Bearer {{ACCESS_TOKEN}}",
+                                        "type": "text"
+                                    }
+                                ],
+                                "url": {
+                                    "raw": "{{BASE_URL_GATEWAY}}/fleet/vehiculos",
+                                    "host": [
+                                        "{{BASE_URL_GATEWAY}}"
+                                    ],
+                                    "path": [
+                                        "fleet",
+                                        "vehiculos"
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "name": "Obtener Vehículo por ID",
+                            "request": {
+                                "method": "GET",
+                                "header": [
+                                    {
+                                        "key": "Authorization",
+                                        "value": "Bearer {{ACCESS_TOKEN}}",
+                                        "type": "text"
+                                    }
+                                ],
+                                "url": {
+                                    "raw": "{{BASE_URL_GATEWAY}}/fleet/vehiculos/:id",
+                                    "host": [
+                                        "{{BASE_URL_GATEWAY}}"
+                                    ],
+                                    "path": [
+                                        "fleet",
+                                        "vehiculos",
+                                        ":id"
+                                    ],
+                                    "variable": [
+                                        {
+                                            "key": "id",
+                                            "value": "VEHICULO_UUID"
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "name": "Obtener Disponibles por Peso",
+                            "request": {
+                                "method": "GET",
+                                "header": [
+                                    {
+                                        "key": "Authorization",
+                                        "value": "Bearer {{ACCESS_TOKEN}}",
+                                        "type": "text"
+                                    }
+                                ],
+                                "url": {
+                                    "raw": "{{BASE_URL_GATEWAY}}/fleet/vehiculos/disponibles-por-peso?peso=10",
+                                    "host": [
+                                        "{{BASE_URL_GATEWAY}}"
+                                    ],
+                                    "path": [
+                                        "fleet",
+                                        "vehiculos",
+                                        "disponibles-por-peso"
+                                    ],
+                                    "query": [
+                                        {
+                                            "key": "peso",
+                                            "value": "10"
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "name": "Actualizar Vehículo",
+                            "request": {
+                                "method": "PATCH",
+                                "header": [
+                                    {
+                                        "key": "Authorization",
+                                        "value": "Bearer {{ACCESS_TOKEN}}",
+                                        "type": "text"
+                                    }
+                                ],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\n    \"capacidadCarga\": 30.0,\n    \"activo\": true\n}",
+                                    "options": {
+                                        "raw": {
+                                            "language": "json"
+                                        }
+                                    }
+                                },
+                                "url": {
+                                    "raw": "{{BASE_URL_GATEWAY}}/fleet/vehiculos/:id",
+                                    "host": [
+                                        "{{BASE_URL_GATEWAY}}"
+                                    ],
+                                    "path": [
+                                        "fleet",
+                                        "vehiculos",
+                                        ":id"
+                                    ],
+                                    "variable": [
+                                        {
+                                            "key": "id",
+                                            "value": "VEHICULO_UUID"
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "name": "Cambiar Estado Vehículo",
+                            "request": {
+                                "method": "PATCH",
+                                "header": [
+                                    {
+                                        "key": "Authorization",
+                                        "value": "Bearer {{ACCESS_TOKEN}}",
+                                        "type": "text"
+                                    }
+                                ],
+                                "url": {
+                                    "raw": "{{BASE_URL_GATEWAY}}/fleet/vehiculos/:id/estado?estado=MANTENIMIENTO",
+                                    "host": [
+                                        "{{BASE_URL_GATEWAY}}"
+                                    ],
+                                    "path": [
+                                        "fleet",
+                                        "vehiculos",
+                                        ":id",
+                                        "estado"
+                                    ],
+                                    "query": [
+                                        {
+                                            "key": "estado",
+                                            "value": "MANTENIMIENTO"
+                                        }
+                                    ],
+                                    "variable": [
+                                        {
+                                            "key": "id",
+                                            "value": "VEHICULO_UUID"
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "name": "Eliminar Vehículo",
+                            "request": {
+                                "method": "DELETE",
+                                "header": [
+                                    {
+                                        "key": "Authorization",
+                                        "value": "Bearer {{ACCESS_TOKEN}}",
+                                        "type": "text"
+                                    }
+                                ],
+                                "url": {
+                                    "raw": "{{BASE_URL_GATEWAY}}/fleet/vehiculos/:id",
+                                    "host": [
+                                        "{{BASE_URL_GATEWAY}}"
+                                    ],
+                                    "path": [
+                                        "fleet",
+                                        "vehiculos",
+                                        ":id"
+                                    ],
+                                    "variable": [
+                                        {
+                                            "key": "id",
+                                            "value": "VEHICULO_UUID"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Repartidores",
+                    "item": [
+                        {
+                            "name": "Crear Repartidor",
+                            "request": {
+                                "method": "POST",
+                                "header": [
+                                    {
+                                        "key": "Authorization",
+                                        "value": "Bearer {{ACCESS_TOKEN}}",
+                                        "type": "text"
+                                    }
+                                ],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\n    \"nombre\": \"Juan\",\n    \"apellido\": \"Perez\",\n    \"documento\": \"1712345678\",\n    \"tipoDocumento\": \"CEDULA\",\n    \"telefono\": \"+593991234567\",\n    \"email\": \"juan.perez@example.com\",\n    \"zonaAsignada\": \"NORTE\",\n    \"tipoLicencia\": \"TIPO_A\",\n    \"vehiculoId\": \"VEHICULO-UUID\"\n}",
+                                    "options": {
+                                        "raw": {
+                                            "language": "json"
+                                        }
+                                    }
+                                },
+                                "url": {
+                                    "raw": "{{BASE_URL_GATEWAY}}/fleet/repartidores",
+                                    "host": [
+                                        "{{BASE_URL_GATEWAY}}"
+                                    ],
+                                    "path": [
+                                        "fleet",
+                                        "repartidores"
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "name": "Listar Repartidores",
+                            "request": {
+                                "method": "GET",
+                                "header": [
+                                    {
+                                        "key": "Authorization",
+                                        "value": "Bearer {{ACCESS_TOKEN}}",
+                                        "type": "text"
+                                    }
+                                ],
+                                "url": {
+                                    "raw": "{{BASE_URL_GATEWAY}}/fleet/repartidores",
+                                    "host": [
+                                        "{{BASE_URL_GATEWAY}}"
+                                    ],
+                                    "path": [
+                                        "fleet",
+                                        "repartidores"
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "name": "Obtener Repartidor por ID",
+                            "request": {
+                                "method": "GET",
+                                "header": [
+                                    {
+                                        "key": "Authorization",
+                                        "value": "Bearer {{ACCESS_TOKEN}}",
+                                        "type": "text"
+                                    }
+                                ],
+                                "url": {
+                                    "raw": "{{BASE_URL_GATEWAY}}/fleet/repartidores/:id",
+                                    "host": [
+                                        "{{BASE_URL_GATEWAY}}"
+                                    ],
+                                    "path": [
+                                        "fleet",
+                                        "repartidores",
+                                        ":id"
+                                    ],
+                                    "variable": [
+                                        {
+                                            "key": "id",
+                                            "value": "REPARTIDOR_UUID"
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "name": "Actualizar Repartidor",
+                            "request": {
+                                "method": "PATCH",
+                                "header": [
+                                    {
+                                        "key": "Authorization",
+                                        "value": "Bearer {{ACCESS_TOKEN}}",
+                                        "type": "text"
+                                    }
+                                ],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\n    \"telefono\": \"+593999999999\"\n}",
+                                    "options": {
+                                        "raw": {
+                                            "language": "json"
+                                        }
+                                    }
+                                },
+                                "url": {
+                                    "raw": "{{BASE_URL_GATEWAY}}/fleet/repartidores/:id",
+                                    "host": [
+                                        "{{BASE_URL_GATEWAY}}"
+                                    ],
+                                    "path": [
+                                        "fleet",
+                                        "repartidores",
+                                        ":id"
+                                    ],
+                                    "variable": [
+                                        {
+                                            "key": "id",
+                                            "value": "REPARTIDOR_UUID"
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "name": "Cambiar Estado Repartidor",
+                            "request": {
+                                "method": "PATCH",
+                                "header": [
+                                    {
+                                        "key": "Authorization",
+                                        "value": "Bearer {{ACCESS_TOKEN}}",
+                                        "type": "text"
+                                    }
+                                ],
+                                "url": {
+                                    "raw": "{{BASE_URL_GATEWAY}}/fleet/repartidores/:id/estado?estado=EN_RUTA",
+                                    "host": [
+                                        "{{BASE_URL_GATEWAY}}"
+                                    ],
+                                    "path": [
+                                        "fleet",
+                                        "repartidores",
+                                        ":id",
+                                        "estado"
+                                    ],
+                                    "query": [
+                                        {
+                                            "key": "estado",
+                                            "value": "EN_RUTA"
+                                        }
+                                    ],
+                                    "variable": [
+                                        {
+                                            "key": "id",
+                                            "value": "REPARTIDOR_UUID"
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "name": "Asignar Vehículo",
+                            "request": {
+                                "method": "POST",
+                                "header": [
+                                    {
+                                        "key": "Authorization",
+                                        "value": "Bearer {{ACCESS_TOKEN}}",
+                                        "type": "text"
+                                    }
+                                ],
+                                "url": {
+                                    "raw": "{{BASE_URL_GATEWAY}}/fleet/repartidores/:id/asignar-vehiculo?vehiculoId=VEHICULO_UUID",
+                                    "host": [
+                                        "{{BASE_URL_GATEWAY}}"
+                                    ],
+                                    "path": [
+                                        "fleet",
+                                        "repartidores",
+                                        ":id",
+                                        "asignar-vehiculo"
+                                    ],
+                                    "query": [
+                                        {
+                                            "key": "vehiculoId",
+                                            "value": "VEHICULO_UUID"
+                                        }
+                                    ],
+                                    "variable": [
+                                        {
+                                            "key": "id",
+                                            "value": "REPARTIDOR_UUID"
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "name": "Remover Vehículo",
+                            "request": {
+                                "method": "DELETE",
+                                "header": [
+                                    {
+                                        "key": "Authorization",
+                                        "value": "Bearer {{ACCESS_TOKEN}}",
+                                        "type": "text"
+                                    }
+                                ],
+                                "url": {
+                                    "raw": "{{BASE_URL_GATEWAY}}/fleet/repartidores/:id/vehiculo",
+                                    "host": [
+                                        "{{BASE_URL_GATEWAY}}"
+                                    ],
+                                    "path": [
+                                        "fleet",
+                                        "repartidores",
+                                        ":id",
+                                        "vehiculo"
+                                    ],
+                                    "variable": [
+                                        {
+                                            "key": "id",
+                                            "value": "REPARTIDOR_UUID"
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "name": "Actualizar Coordenadas",
+                            "request": {
+                                "method": "POST",
+                                "header": [
+                                    {
+                                        "key": "Authorization",
+                                        "value": "Bearer {{ACCESS_TOKEN}}",
+                                        "type": "text"
+                                    }
+                                ],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\n    \"latitud\": -0.1807,\n    \"longitud\": -78.4678\n}",
+                                    "options": {
+                                        "raw": {
+                                            "language": "json"
+                                        }
+                                    }
+                                },
+                                "url": {
+                                    "raw": "{{BASE_URL_GATEWAY}}/fleet/repartidores/:id/coordenadas",
+                                    "host": [
+                                        "{{BASE_URL_GATEWAY}}"
+                                    ],
+                                    "path": [
+                                        "fleet",
+                                        "repartidores",
+                                        ":id",
+                                        "coordenadas"
+                                    ],
+                                    "variable": [
+                                        {
+                                            "key": "id",
+                                            "value": "REPARTIDOR_UUID"
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "name": "Eliminar Repartidor",
+                            "request": {
+                                "method": "DELETE",
+                                "header": [
+                                    {
+                                        "key": "Authorization",
+                                        "value": "Bearer {{ACCESS_TOKEN}}",
+                                        "type": "text"
+                                    }
+                                ],
+                                "url": {
+                                    "raw": "{{BASE_URL_GATEWAY}}/fleet/repartidores/:id",
+                                    "host": [
+                                        "{{BASE_URL_GATEWAY}}"
+                                    ],
+                                    "path": [
+                                        "fleet",
+                                        "repartidores",
+                                        ":id"
+                                    ],
+                                    "variable": [
+                                        {
+                                            "key": "id",
+                                            "value": "REPARTIDOR_UUID"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Pedido Service",
+            "item": [
+                {
+                    "name": "Crear Pedido",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{ACCESS_TOKEN}}",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"clienteId\": \"CLIENTE-UUID-123\",\n    \"direccionOrigen\": {\n        \"calle\": \"Av. Amazonas y Naciones Unidas\",\n        \"numero\": \"123\",\n        \"ciudad\": \"Quito\",\n        \"provincia\": \"Pichincha\",\n        \"latitud\": -0.18,\n        \"longitud\": -78.46\n    },\n    \"direccionDestino\": {\n        \"calle\": \"Av. Shyris y Eloy Alfaro\",\n        \"numero\": \"456\",\n        \"ciudad\": \"Quito\",\n        \"provincia\": \"Pichincha\",\n        \"latitud\": -0.17,\n        \"longitud\": -78.47\n    },\n    \"modalidadServicio\": \"URBANA_RAPIDA\",\n    \"tipoEntrega\": \"EXPRESS\",\n    \"peso\": 2.5,\n    \"telefonoContacto\": \"0998765432\",\n    \"nombreDestinatario\": \"Maria C.\"\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{BASE_URL_GATEWAY}}/pedido/pedidos",
+                            "host": [
+                                "{{BASE_URL_GATEWAY}}"
+                            ],
+                            "path": [
+                                "pedido",
+                                "pedidos"
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Listar Todos los Pedidos",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{ACCESS_TOKEN}}",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{BASE_URL_GATEWAY}}/pedido/pedidos",
+                            "host": [
+                                "{{BASE_URL_GATEWAY}}"
+                            ],
+                            "path": [
+                                "pedido",
+                                "pedidos"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Obtener Pedido por ID",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{ACCESS_TOKEN}}",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{BASE_URL_GATEWAY}}/pedido/pedidos/:id",
+                            "host": [
+                                "{{BASE_URL_GATEWAY}}"
+                            ],
+                            "path": [
+                                "pedido",
+                                "pedidos",
+                                ":id"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "id",
+                                    "value": "PEDIDO_UUID"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Obtener Pedidos por Cliente",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{ACCESS_TOKEN}}",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{BASE_URL_GATEWAY}}/pedido/pedidos/cliente/:clienteId",
+                            "host": [
+                                "{{BASE_URL_GATEWAY}}"
+                            ],
+                            "path": [
+                                "pedido",
+                                "pedidos",
+                                "cliente",
+                                ":clienteId"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "clienteId",
+                                    "value": "CLIENTE_UUID"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Actualizar Pedido (Patch)",
+                    "request": {
+                        "method": "PATCH",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{ACCESS_TOKEN}}",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"descripcion\": \"Nueva descripción\"\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{BASE_URL_GATEWAY}}/pedido/pedidos/:id",
+                            "host": [
+                                "{{BASE_URL_GATEWAY}}"
+                            ],
+                            "path": [
+                                "pedido",
+                                "pedidos",
+                                ":id"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "id",
+                                    "value": "PEDIDO_UUID"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Cancelar Pedido",
+                    "request": {
+                        "method": "PATCH",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{ACCESS_TOKEN}}",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{BASE_URL_GATEWAY}}/pedido/pedidos/:id/cancelar",
+                            "host": [
+                                "{{BASE_URL_GATEWAY}}"
+                            ],
+                            "path": [
+                                "pedido",
+                                "pedidos",
+                                ":id",
+                                "cancelar"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "id",
+                                    "value": "PEDIDO_UUID"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Eliminar Pedido",
+                    "request": {
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{ACCESS_TOKEN}}",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{BASE_URL_GATEWAY}}/pedido/pedidos/:id",
+                            "host": [
+                                "{{BASE_URL_GATEWAY}}"
+                            ],
+                            "path": [
+                                "pedido",
+                                "pedidos",
+                                ":id"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "id",
+                                    "value": "PEDIDO_UUID"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Reintentar Asignación",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{ACCESS_TOKEN}}",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{BASE_URL_GATEWAY}}/pedido/pedidos/:id/reintentar-asignacion",
+                            "host": [
+                                "{{BASE_URL_GATEWAY}}"
+                            ],
+                            "path": [
+                                "pedido",
+                                "pedidos",
+                                ":id",
+                                "reintentar-asignacion"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "id",
+                                    "value": "PEDIDO_UUID"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Asignar Repartidor y Vehículo",
+                    "request": {
+                        "method": "PATCH",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{ACCESS_TOKEN}}",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{BASE_URL_GATEWAY}}/pedido/pedidos/:pedidoId/asignar?repartidorId=REPARTIDOR_UUID&vehiculoId=VEHICULO_UUID",
+                            "host": [
+                                "{{BASE_URL_GATEWAY}}"
+                            ],
+                            "path": [
+                                "pedido",
+                                "pedidos",
+                                ":pedidoId",
+                                "asignar"
+                            ],
+                            "query": [
+                                {
+                                    "key": "repartidorId",
+                                    "value": "REPARTIDOR_UUID"
+                                },
+                                {
+                                    "key": "vehiculoId",
+                                    "value": "VEHICULO_UUID"
+                                }
+                            ],
+                            "variable": [
+                                {
+                                    "key": "pedidoId",
+                                    "value": "PEDIDO_UUID"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Pedidos Pendientes Asignación",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{ACCESS_TOKEN}}",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{BASE_URL_GATEWAY}}/pedido/pedidos/pendientes-asignacion",
+                            "host": [
+                                "{{BASE_URL_GATEWAY}}"
+                            ],
+                            "path": [
+                                "pedido",
+                                "pedidos",
+                                "pendientes-asignacion"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Pedidos por Repartidor",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{ACCESS_TOKEN}}",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{BASE_URL_GATEWAY}}/pedido/pedidos/repartidor/:repartidorId",
+                            "host": [
+                                "{{BASE_URL_GATEWAY}}"
+                            ],
+                            "path": [
+                                "pedido",
+                                "pedidos",
+                                "repartidor",
+                                ":repartidorId"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "repartidorId",
+                                    "value": "REPARTIDOR_UUID"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Pedidos por Modalidad",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{ACCESS_TOKEN}}",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{BASE_URL_GATEWAY}}/pedido/pedidos/modalidad/:modalidad",
+                            "host": [
+                                "{{BASE_URL_GATEWAY}}"
+                            ],
+                            "path": [
+                                "pedido",
+                                "pedidos",
+                                "modalidad",
+                                ":modalidad"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "modalidad",
+                                    "value": "URBANA_RAPIDA"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Asociar Factura",
+                    "request": {
+                        "method": "PATCH",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{ACCESS_TOKEN}}",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{BASE_URL_GATEWAY}}/pedido/pedidos/:pedidoId/factura?facturaId=FACTURA_UUID&tarifa=10.5",
+                            "host": [
+                                "{{BASE_URL_GATEWAY}}"
+                            ],
+                            "path": [
+                                "pedido",
+                                "pedidos",
+                                ":pedidoId",
+                                "factura"
+                            ],
+                            "query": [
+                                {
+                                    "key": "facturaId",
+                                    "value": "FACTURA_UUID"
+                                },
+                                {
+                                    "key": "tarifa",
+                                    "value": "10.5"
+                                }
+                            ],
+                            "variable": [
+                                {
+                                    "key": "pedidoId",
+                                    "value": "PEDIDO_UUID"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Pedidos sin Factura",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{ACCESS_TOKEN}}",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{BASE_URL_GATEWAY}}/pedido/pedidos/sin-factura",
+                            "host": [
+                                "{{BASE_URL_GATEWAY}}"
+                            ],
+                            "path": [
+                                "pedido",
+                                "pedidos",
+                                "sin-factura"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Pedidos Alta Prioridad",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{ACCESS_TOKEN}}",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{BASE_URL_GATEWAY}}/pedido/pedidos/alta-prioridad",
+                            "host": [
+                                "{{BASE_URL_GATEWAY}}"
+                            ],
+                            "path": [
+                                "pedido",
+                                "pedidos",
+                                "alta-prioridad"
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Tracking Service",
+            "item": [
+                {
+                    "name": "Enviar Ubicación (Track)",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{ACCESS_TOKEN}}",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"repartidorId\": 1,\n    \"latitud\": -0.1807,\n    \"longitud\": -78.4678,\n    \"timestamp\": \"2026-02-11T12:00:00Z\"\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{BASE_URL_GATEWAY}}/tracking/api/tracking/track",
+                            "host": [
+                                "{{BASE_URL_GATEWAY}}"
+                            ],
+                            "path": [
+                                "tracking",
+                                "api",
+                                "tracking",
+                                "track"
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Delivery GraphQL Service",
+            "item": [
+                {
+                    "name": "Pedidos por Zona",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{ACCESS_TOKEN}}",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "graphql",
+                            "graphql": {
+                                "query": "query PedidosPorZona($zonaId: ID!, $estado: EstadoPedido) {\n  pedidosPorZona(zonaId: $zonaId, estado: $estado) {\n    id\n    cliente {\n      nombre\n    }\n    destino\n    estado\n    repartidor {\n      nombre\n      vehiculo {\n        placa\n        tipo\n      }\n    }\n    fechaCreacion\n    zona\n  }\n}",
+                                "variables": "{\n  \"zonaId\": \"QUITO_NORTE\",\n  \"estado\": \"EN_RUTA\"\n}"
+                            }
+                        },
+                        "url": {
+                            "raw": "{{BASE_URL_GATEWAY}}/graphql",
+                            "host": [
+                                "{{BASE_URL_GATEWAY}}"
+                            ],
+                            "path": [
+                                "graphql"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Flota Activa",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{ACCESS_TOKEN}}",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "graphql",
+                            "graphql": {
+                                "query": "query FlotaEnMapa($zonaId: ID!) {\n  flotaActiva(zonaId: $zonaId) {\n    id\n    nombre\n    placa\n    latitud\n    longitud\n    estado\n    velocidad\n    ultimaActualizacion\n  }\n}",
+                                "variables": "{\n  \"zonaId\": \"QUITO_CENTRO\"\n}"
+                            }
+                        },
+                        "url": {
+                            "raw": "{{BASE_URL_GATEWAY}}/graphql",
+                            "host": [
+                                "{{BASE_URL_GATEWAY}}"
+                            ],
+                            "path": [
+                                "graphql"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Detalle Pedido",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{ACCESS_TOKEN}}",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "graphql",
+                            "graphql": {
+                                "query": "query DetallePedido($id: ID!) {\n  pedido(id: $id) {\n    id\n    cliente {\n      nombre\n      telefono\n      direccion\n    }\n    destino\n    estado\n    repartidor {\n      nombre\n      vehiculo {\n        placa\n        modelo\n      }\n    }\n    tiempoTranscurrido\n    retrasoMin\n    fechaCreacion\n  }\n}",
+                                "variables": "{\n  \"id\": \"PEDIDO-UUID\"\n}"
+                            }
+                        },
+                        "url": {
+                            "raw": "{{BASE_URL_GATEWAY}}/graphql",
+                            "host": [
+                                "{{BASE_URL_GATEWAY}}"
+                            ],
+                            "path": [
+                                "graphql"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Reasignar Pedido",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{ACCESS_TOKEN}}",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "graphql",
+                            "graphql": {
+                                "query": "mutation ReasignarPedido($input: ReasignarPedidoInput!) {\n  reasignarPedido(input: $input) {\n    id\n    estado\n    repartidor {\n      nombre\n    }\n    fechaActualizacion\n  }\n}",
+                                "variables": "{\n  \"input\": {\n    \"pedidoId\": \"PEDIDO-UUID\",\n    \"nuevoRepartidorId\": \"REPARTIDOR-UUID\",\n    \"motivo\": \"Incidencia técnica\"\n  }\n}"
+                            }
+                        },
+                        "url": {
+                            "raw": "{{BASE_URL_GATEWAY}}/graphql",
+                            "host": [
+                                "{{BASE_URL_GATEWAY}}"
+                            ],
+                            "path": [
+                                "graphql"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Actualizar Estado Repartidor",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{ACCESS_TOKEN}}",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "graphql",
+                            "graphql": {
+                                "query": "mutation ActualizarEstadoRepartidor($input: ActualizarEstadoRepartidorInput!) {\n  actualizarEstadoRepartidor(input: $input) {\n    id\n    nombre\n    disponible\n    vehiculo {\n      placa\n    }\n  }\n}",
+                                "variables": "{\n  \"input\": {\n    \"repartidorId\": \"REPARTIDOR-UUID\",\n    \"estado\": \"MANTENIMIENTO\",\n    \"motivo\": \"Revisión mecánica\"\n  }\n}"
+                            }
+                        },
+                        "url": {
+                            "raw": "{{BASE_URL_GATEWAY}}/graphql",
+                            "host": [
+                                "{{BASE_URL_GATEWAY}}"
+                            ],
+                            "path": [
+                                "graphql"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Dashboard Completo",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{ACCESS_TOKEN}}",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "graphql",
+                            "graphql": {
+                                "query": "query DashboardCompleto($zonaId: ID!) {\n  pedidos(filtro: { zonaId: $zonaId }) {\n    id\n    estado\n    repartidor {\n      nombre\n    }\n  }\n  flotaResumen(zonaId: $zonaId) {\n    total\n    disponibles\n    enRuta\n  }\n  kpis(zonaId: $zonaId) {\n    pedidosPendientes\n    tiempoPromedioEntrega\n  }\n}",
+                                "variables": "{\n  \"zonaId\": \"QUITO_NORTE\"\n}"
+                            }
+                        },
+                        "url": {
+                            "raw": "{{BASE_URL_GATEWAY}}/graphql",
+                            "host": [
+                                "{{BASE_URL_GATEWAY}}"
+                            ],
+                            "path": [
+                                "graphql"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Métricas de Caché",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{ACCESS_TOKEN}}",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "graphql",
+                            "graphql": {
+                                "query": "query MetricasRendimiento {\n  cacheMetrics {\n    flotaCache {\n      hitRate\n      size\n    }\n    kpiCache {\n      hitRate\n      size\n    }\n    pedidoCache {\n      hitRate\n      size\n    }\n  }\n}",
+                                "variables": "{}"
+                            }
+                        },
+                        "url": {
+                            "raw": "{{BASE_URL_GATEWAY}}/graphql",
+                            "host": [
+                                "{{BASE_URL_GATEWAY}}"
+                            ],
+                            "path": [
+                                "graphql"
+                            ]
+                        }
+                    }
+                }
+            ]
+        }
+    ],
+    "variable": [
+        {
+            "key": "BASE_URL_GATEWAY",
+            "value": "http://localhost:8000",
+            "type": "string"
+        },
+        {
+            "key": "ACCESS_TOKEN",
+            "value": "insert_token_here",
+            "type": "string"
+        }
+    ]
+}
