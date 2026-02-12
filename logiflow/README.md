@@ -1,6 +1,6 @@
 # LogiFlow - Microservicios
 
-Este directorio contiene el código fuente de los microservicios y la configuración necesaria para desplegar la plataforma **EntregaExpress P2** en un entorno local utilizando Docker.
+Este directorio contiene el código fuente de los microservicios y la configuración necesaria para desplegar la plataforma **logiflow** en un entorno local utilizando Docker.
 
 ## 📦 Servicios y Puertos
 
