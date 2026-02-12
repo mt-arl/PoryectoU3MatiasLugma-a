@@ -1,4 +1,4 @@
-# Tracking Service - LogiFlow
+# LogiFlow - Tracking Service
 
 Microservicio de tracking para el proyecto LogiFlow. Este servicio gestiona el envío de ubicaciones de repartidores a través de RabbitMQ.
 

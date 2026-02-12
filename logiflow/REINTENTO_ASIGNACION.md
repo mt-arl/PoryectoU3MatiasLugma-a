@@ -672,7 +672,7 @@ curl -X GET http://localhost:8082/api/pedidos/{PEDIDO_ID} \
 
 ```bash
 # Todos los servicios
-cd /path/to/EntregaExpress_P2/logiflow
+cd /path/to/logiflow
 docker compose logs -f
 
 # Solo PedidoService
@@ -903,4 +903,4 @@ Para dudas o problemas con el sistema de reintento de asignación:
 
 **Última actualización:** 6 de febrero de 2026  
 **Versión:** 1.0.0  
-**Autor:** LogiFlow Development Team
+

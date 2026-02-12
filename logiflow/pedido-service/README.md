@@ -1,6 +1,6 @@
 # Pedido Service
 
-Microservicio de gestión de pedidos para el sistema LogiFlow de entregas express.
+Microservicio de gestión de pedidos para el sistema LogiFlow.
 
 ## 📋 Descripción
 
@@ -69,7 +69,7 @@ El servicio requiere PostgreSQL. Puedes levantar una instancia con Docker Compos
 
 ```powershell
 # Desde el directorio pedido-service
-cd D:\EntregaExpress_P2\logiflow\pedido-service
+cd /path/to/logiflow/pedido-service
 docker-compose up -d
 ```
 

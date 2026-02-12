@@ -8,6 +8,8 @@ Este directorio contiene los manifiestos necesarios para desplegar **logiwflow**
 - **kubectl** configurado.
 - **Docker** (para construir imágenes si no se usan las del registro).
 
+> ⚠️ **Importante:** Las imágenes utilizadas en este despliegue están compiladas para arquitectura **ARM64**. Consulta [ARM64_IMAGES.md](./ARM64_IMAGES.md) para más detalles.
+
 ## 🚀 Pasos de Despliegue
 
 Sigue este orden estricto para evitar errores de dependencias:

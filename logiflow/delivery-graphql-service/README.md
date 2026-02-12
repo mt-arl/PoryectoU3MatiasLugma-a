@@ -1,4 +1,4 @@
-# 🚀 Delivery GraphQL Service
+# 🚀 LogiFlow - Delivery GraphQL Service
 
 Microservicio GraphQL (Apollo Server v4) que actúa como **BFF/Gateway** para el sistema de delivery, agregando datos de 3 microservicios Java REST.
 

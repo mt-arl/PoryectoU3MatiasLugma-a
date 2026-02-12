@@ -182,11 +182,11 @@ integration:
 
 ```powershell
 # Terminal 1 - Base de datos de Pedidos
-cd D:\EntregaExpress_P2\logiflow\pedido-service
+cd /path/to/logiflow/pedido-service
 docker-compose up -d
 
 # Terminal 2 - Base de datos de Billing
-cd D:\EntregaExpress_P2\logiflow\billing-service
+cd /path/to/logiflow/billing-service
 docker-compose up -d
 ```
 
@@ -194,11 +194,11 @@ docker-compose up -d
 
 ```powershell
 # Terminal 3 - Billing Service (primero)
-cd D:\EntregaExpress_P2\logiflow\billing-service
+cd /path/to/logiflow/billing-service
 .\mvnw.cmd spring-boot:run
 
 # Terminal 4 - Pedido Service (después)
-cd D:\EntregaExpress_P2\logiflow\pedido-service
+cd /path/to/logiflow/pedido-service
 .\mvnw.cmd spring-boot:run
 ```
 

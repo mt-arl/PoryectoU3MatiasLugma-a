@@ -1,4 +1,4 @@
-# LogiFlow GraphQL Service
+# LogiFlow - GraphQL Service
 
 ## Descripción
 Microservicio GraphQL que proporciona una API unificada para consultas complejas y mutaciones del sistema LogiFlow. Implementa las 4 mutaciones específicas requeridas y queries avanzadas por zona/ciudad.
@@ -139,4 +139,4 @@ Ver archivo `queries-examples.graphql` para ejemplos completos de:
 **Aplicaciones Distribuidas**  
 
 **Proyecto Integrador Parcial II**  
-**LogiFlow – Plataforma Integral de Gestión de Operaciones para EntregaExpress S.A.**
+**LogiFlow – Plataforma Integral de Gestión de Operaciones**

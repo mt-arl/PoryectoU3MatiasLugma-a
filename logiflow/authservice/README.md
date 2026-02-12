@@ -1,4 +1,4 @@
-# AuthService
+# LogiFlow - AuthService
 
 Este proyecto proporciona endpoints de autenticación y recursos protegidos.
 

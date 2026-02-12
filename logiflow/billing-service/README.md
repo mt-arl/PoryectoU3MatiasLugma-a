@@ -1,4 +1,4 @@
-# 💳 Billing Service
+# 💳 LogiFlow - Billing Service
 
 **Servicio de Gestión de Facturación y Cálculo de Tarifas**
 

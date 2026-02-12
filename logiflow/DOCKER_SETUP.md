@@ -1,4 +1,4 @@
-# 🐳 Docker Compose Setup - EntregaExpress
+# 🐳 Docker Compose Setup - LogiFlow
 
 ## ⚠️ Situación Actual
 
@@ -29,7 +29,7 @@ El `docker-compose.yml` en la raíz ha sido actualizado con las siguientes mejor
 
 ```bash
 # Desde la carpeta raíz del proyecto (logiflow)
-cd c:\Users\DELL\Documents\7moSemestre\Distribuidas\Parcial\ 2\Proyecto\ 2\ Parcial\EntregaExpress_P2\logiflow
+cd /path/to/logiflow
 
 # Iniciar todos los servicios
 docker-compose up -d

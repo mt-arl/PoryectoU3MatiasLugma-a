@@ -1,4 +1,4 @@
-# Microservicio de Notificaciones - LogiFlow
+# LogiFlow - Microservicio de Notificaciones
 
 ## Descripción
 Microservicio de notificaciones que consume eventos de RabbitMQ y envía alertas por correo electrónico. Implementa patrones de mensajería idempotente con deduplicación basada en messageId.

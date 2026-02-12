@@ -11,7 +11,7 @@ LogiFlow es un **Sistema de Gestión Logística Distribuido** basado en arquitec
 ## 📁 Estructura del Proyecto
 
 ```
-EntregaExpress_P2/
+LogiFlow/
 ├── logiflow/                       # Directorio principal del proyecto
 │   ├── api-gateway/                # Gateway de enrutamiento (Puerto 8080)
 │   ├── authservice/                # Servicio de autenticación JWT (Puerto 8081)
@@ -666,7 +666,7 @@ Body: {
 
 ```bash
 # Navegar al directorio logiflow
-cd /home/jairobonilla/Escritorio/software\ projects/EntregaExpress_P2/logiflow
+cd /path/to/logiflow
 
 # Levantar todos los servicios
 docker-compose up -d
